@@ -15,6 +15,7 @@
 corrcalc <- function(df) {
   as.factor(df$diagnosis)
   round(prop.table(table(df$diagnosis)), 2)
+  map_int(df, function(.x) sum(is.na(.x)))
   df_corr <- cor(df %>% select(-id, -diagnosis, -X))
   corrplot(df_corr, order = "hclust", tl.cex = 1, addrect = 8)
 }

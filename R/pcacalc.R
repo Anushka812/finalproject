@@ -11,6 +11,7 @@
 #' @return plots and data frames
 
 pcacalc <- function(df) {
+  map_int(df, function(.x) sum(is.na(.x)))
   results <- prcomp(df%>% select(-id, -diagnosis, -X))
   biplot(results, scale = 0)
 }

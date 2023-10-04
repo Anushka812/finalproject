@@ -12,6 +12,7 @@
 
 randforcalc <- function(df) {
   as.factor(df$diagnosis)
+  map_int(df, function(.x) sum(is.na(.x)))
   round(prop.table(table(df$diagnosis)), 2)
   df_corr <- df %>% select(-id, -diagnosis, -X)
   set.seed(1)
