@@ -11,6 +11,6 @@
 #' @return plots and data frames
 
 pcacalc <- function(df) {
-  results <- prcomp(df%>% select(-id, -diagnosis, -X), scale=true)
+  results <- prcomp(df%>% select(-id, -diagnosis, -X))
   biplot(results, scale = 0)
 }
